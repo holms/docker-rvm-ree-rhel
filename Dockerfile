@@ -15,6 +15,8 @@ RUN yum update -y \
         && /bin/bash -l -c "rvm install ruby-1.8.7-head -n rg142 --verbose" \
         && /bin/bash -l -c "rvm --default use ruby-1.8.7-head-rg142" \
         && yum groupremove -y "Development Tools" \
-        && yum remove -y libyaml-devel readline-devel zlib-devel  openssl-devel sqlite-devel
+        && yum remove -y libyaml-devel readline-devel zlib-devel  openssl-devel sqlite-devel \
+        && rm -rf /var/cache/yum/* \
+        && yum -y clean all
 
 
