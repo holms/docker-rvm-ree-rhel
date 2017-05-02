@@ -12,9 +12,9 @@ RUN yum update -y \
         && gpg2 --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 \
         && curl -sSL https://get.rvm.io | bash -s stable \
         && /bin/bash -l -c "source /etc/profile.d/rvm.sh" \
-        && /bin/bash -l -c "rvm install ruby-1.8.7-head --verbose" \
-        && /bin/bash -l -c "rvm --default use ruby-1.8.7-head" \
-        && /bin/bash -l -c "rvm install rubygems 1.4.2" \
+        && /bin/bash -l -c "rvm install ree --verbose" \
+        && /bin/bash -l -c "rvm --default use ree" \
+        && /bin/bash -l -c "gem update --system 1.4.2 " \
         && yum groupremove -y "Development Tools" \
         && yum remove -y libyaml-devel readline-devel zlib-devel  openssl-devel sqlite-devel \
         && rm -rf /var/cache/yum/* \
