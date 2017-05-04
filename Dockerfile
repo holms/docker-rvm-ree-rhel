@@ -4,7 +4,11 @@ MAINTAINER Roman Gorodeckij <it@swingcats.lt>
 RUN mkdir -p /usr/local/rvm/bin
 ENV PATH /usr/local/rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
+
 RUN yum update -y \
+        && yum install -y epel-release yum-utils \
+        && yum-config-manager --enable epel \
+        && yum clean all && yum update -y \
         && yum groupinstall -y 'Development Tools' \
         && yum install -y which git libyaml-devel readline-devel zlib-devel libffi-devel openssl-devel sqlite-devel \
         && echo 'export rvm_prefix="$HOME"' > /root/.rvmrc \
