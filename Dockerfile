@@ -13,7 +13,7 @@ RUN yum update -y \
         && curl -sSL https://get.rvm.io | bash -s stable \
         && /bin/bash -l -c "source /etc/profile.d/rvm.sh" \
         && /bin/bash -l -c "rvm install ree --verbose" \
-        && /bin/bash -l -c "rvm --default use ree" \
+        && /bin/bash -l -c " rvm use ree --default" \
         && /bin/bash -l -c "gem update --system 1.4.2 " \
         && /bin/bash -l -c "gem install bundler" \
         && yum groupremove -y "Development Tools" \
